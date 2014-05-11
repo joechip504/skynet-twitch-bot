@@ -22,6 +22,6 @@ at the top of 'connect.py' accordingly.
 
 * Make settings.txt where we can put all bot info except api key.
 
-* Put api key ( http://www.twitchapps.com/tmi/ ) in hidden file, make sure 
+* Put api key in hidden file, make sure 
 to not commit it. Maybe use environment variable instead.
 

@@ -46,8 +46,10 @@ def connect():
 
     s.send(bytes("PASS %s\r\n" % d['OAUTH'], "UTF-8"))
     s.send(bytes("NICK %s\r\n" % d['NICK'], "UTF-8"))
+    '''
     s.send(bytes("USER %s %s bla :%s\r\n" % (
         d['IDENT'], d['HOST'], d['REALNAME']), "UTF-8"))
+    '''
     s.send(bytes("JOIN #%s\r\n" % d['CHAT_CHANNEL'], "UTF-8"))
 
     return s
