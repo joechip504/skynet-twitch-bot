@@ -1,5 +1,4 @@
 import socket
-
 # ============================================================================
 SETTINGS_FILE = 'settings.txt'
 API_KEY_FILE  = '.apikey.txt'
@@ -61,5 +60,3 @@ if __name__ == "__main__":
     while(True):
         read_buffer = s.recv(1024).decode("UTF-8", errors = "ignore")
         print(read_buffer)
-
-
