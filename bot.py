@@ -11,7 +11,7 @@ class Message:
             self.contents = buf.split(':')[-1].strip()
 
     def is_ping(self):
-        return self.sender == "PING"
+        return self.sender.startswith("PING")
 
 if __name__ == "__main__":
     s = connect()
