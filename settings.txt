@@ -1,7 +1,7 @@
 HOST irc.twitch.tv
 PORT 6667
-NICK 
-IDENT
-REALNAME
-MASTER
-CHAT_CHANNEL
+NICK skynet_systems
+IDENT skynet_systems
+REALNAME skynet_systems
+MASTER skynet_systems
+CHAT_CHANNEL skynet_systems
