@@ -1,4 +1,5 @@
 from connect import connect
+import random
 
 class Message:
     """Represent IRC message"""
@@ -32,8 +33,23 @@ if __name__ == "__main__":
             if (msg.is_ping()):
                 print("Received a ping! Pong-ing...")
                 s.send(bytes("PONG tmi.twitch.tv\r\n", "UTF-8"))
-    
 
-
-
-
+            if (msg.contents[0] == "!"):
+                command = msg.contents.split(" ")[0].strip("!").lower()
+                try:
+                    args = msg.contents.split(" ")[1].lower()
+                except IndexError:
+                    print("There were no arguments")
+                if (command == "test"):
+                    reply = "PRIVMSG " + "#joechip504" + " :Test worked!\r\n"
+                    s.send(bytes(reply, "UTF-8"))
+                elif(command == "roll"):
+                    print("Rolling " + args)
+                    results = []
+                    die = int(args.split("d")[0])
+                    size = int(args.split("d")[1])
+                    for i in range(0, die):
+                        results.append(random.randint(1,size))
+                    resultsToPrint = ", ".join(str(e) for e in results)
+                    reply = "PRIVMSG #joechip504 :" + resultsToPrint + "\r\n"
+                    s.send(bytes(reply, "UTF-8"))
