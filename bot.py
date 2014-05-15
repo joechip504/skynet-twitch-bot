@@ -34,15 +34,26 @@ if __name__ == "__main__":
                 print("Received a ping! Pong-ing...")
                 s.send(bytes("PONG tmi.twitch.tv\r\n", "UTF-8"))
 
+            if (msg.contents == "Open the pod bay doors"):
+                s.send(bytes("PRIVMSG #joechip504 :I'm sorry,\
+                             I can't let you do that.\r\n", "UTF-8"))
+
+            if (str(msg.sender) == "falcons52"):
+                s.send(bytes("Go away", "UTF-8"))
+
             if (msg.contents[0] == "!"):
                 command = msg.contents.split(" ")[0].strip("!").lower()
                 try:
                     args = msg.contents.split(" ")[1].lower()
                 except IndexError:
                     print("There were no arguments")
+
+                    
                 if (command == "test"):
                     reply = "PRIVMSG " + "#joechip504" + " :Test worked!\r\n"
                     s.send(bytes(reply, "UTF-8"))
+
+                    
                 elif(command == "roll"):
                     print("Rolling " + args)
                     results = []
@@ -53,3 +64,6 @@ if __name__ == "__main__":
                     resultsToPrint = ", ".join(str(e) for e in results)
                     reply = "PRIVMSG #joechip504 :" + resultsToPrint + "\r\n"
                     s.send(bytes(reply, "UTF-8"))
+
+
+                #elif (command == 
