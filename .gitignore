@@ -1,3 +1,5 @@
-*.apikey.txt
-*.skynet_login.txt
+.apikey.txt
+.skynet_login.txt
+test.db
+
 
