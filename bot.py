@@ -1,4 +1,5 @@
 from connect import connect
+from chat_database import ChatDatabase
 import random
 
 class Message:
@@ -15,6 +16,8 @@ class Message:
         return self.sender.startswith("PING")
 
 if __name__ == "__main__":
+
+    db = ChatDatabase('test.db')
     s = connect()
 
     while(True):
@@ -30,9 +33,14 @@ if __name__ == "__main__":
             print("SENDER: {} CONTENTS: {}\n".format(
                 msg.sender, msg.contents))
 
+
             if (msg.is_ping()):
                 print("Received a ping! Pong-ing...")
                 s.send(bytes("PONG tmi.twitch.tv\r\n", "UTF-8"))
 
+            else:
+                db.write(msg)
+                db.commit() ### TODO not commit every little transaction
 
+    db.close()
 
