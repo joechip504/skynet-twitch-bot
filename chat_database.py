@@ -29,8 +29,6 @@ class ChatDatabase(object):
                 message.contents,       # str, message contents
                 )
 
-        print(sql_info)
-
         self.c.execute('''INSERT INTO Chat 
             VALUES (?, ?, ?)
             ''', sql_info)
