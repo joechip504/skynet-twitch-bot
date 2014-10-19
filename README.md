@@ -1,5 +1,7 @@
 Gonna do something, yeah!
 
+https://docs.google.com/document/d/1k1Bygp60l-SBK6hyEfTqQZ51tE0AtRlOVd7lerN7b5w/edit?usp=sharing
+
 # SETUP
 Steps to start up skynet:
 
