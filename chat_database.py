@@ -23,16 +23,17 @@ class ChatDatabase(object):
     def write(self, message):
         ''' insert object of type Message into the database'''
 
-        sql_info = { 
-                'schema'  : self.schema,      # str
-                'time'    : int(time.time()), # int
-                'username': message.sender,   # str
-                'contents': message.contents  # str
-                }
+        sql_info = ( 
+                str(int(time.time())), # int, time-since-epoch
+                message.sender,        # str, twitch username 
+                message.contents,       # str, message contents
+                )
 
-        self.c.execute('''INSERT INTO Chat {schema}
-            VALUES ('{time}', '{username}', '{contents}')
-            '''.format(**sql_info))
+        print(sql_info)
+
+        self.c.execute('''INSERT INTO Chat 
+            VALUES (?, ?, ?)
+            ''', sql_info)
 
     def commit(self): 
         self.conn.commit()
